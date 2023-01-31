@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ticket_holders
   resources :competitions
   resources :events
   resources :users
