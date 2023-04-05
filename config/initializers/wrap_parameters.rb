@@ -5,7 +5,7 @@
 
 # Enable parameter wrapping for JSON. You can disable this by setting :format to an empty array.
 ActiveSupport.on_load(:action_controller) do
-  wrap_parameters format: [:json]
+  wrap_parameters format: [:json] #having this [:json] means 'params is shown with duplicates and nesting. You can remove the [:json] to tidy this up.
 end
 
 # To enable root element in JSON for ActiveRecord objects.
