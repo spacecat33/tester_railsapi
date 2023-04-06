@@ -5,6 +5,8 @@ const form = document.getElementById("comment-form")  //this will grab specific 
 console.log(form);
 
 form.addEventListener("submit", handleSubmit) //note that the more event listeners slows the site down
+
+addClickToButtons();
 })
 
 function handleSubmit(event) {
@@ -32,5 +34,16 @@ function addClickToButtons() {
     const parent = document.getElementById("helicopter-parent");
     parent.addEventListener("click", (event) => {
         alert("I was clicked");
+        // console.dir(event.target)
+        // switch (event.target.dataset.name) {
+        //     case value:
+
+        //         break;
+
+        //     default:
+
+        //         break;
+
+        // }
     })
 }
