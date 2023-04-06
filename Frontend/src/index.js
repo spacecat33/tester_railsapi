@@ -35,6 +35,9 @@ function addComment (comment) {
         event.target.parentElement.remove();
     })
 
+    // add fetch() function here to backend database in order to persist user entries
+    // note you can use nodeexpress, mongodb or pythonbackend with JS frontend but it'll always be separate/on a different server
+
     commentDiv.append(commentSpan, deleteButton, space);
     commentsDiv.append(commentDiv);
 
