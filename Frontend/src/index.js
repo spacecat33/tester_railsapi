@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-const form = document.querySelector('form');
+// const form = document.querySelector('form'); //this will grab first form on page
+const form = document.getElementById("comment-form")  //this will grab specific form with the noted id/specific selector.
 console.log(form);
 
 form.addEventListener("submit", handleSubmit)
