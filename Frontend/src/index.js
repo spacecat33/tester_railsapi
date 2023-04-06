@@ -1,3 +1,5 @@
+let editMode = false;
+
 document.addEventListener("DOMContentLoaded", function() {
 
     // const form = document.querySelector('form'); //this will grab first form on page
@@ -16,7 +18,14 @@ function handleSubmit(event) {
         // const input = event.target[0];
         // const comment = input.value;    //OR INSTEAD OF THIS LINE AND LINE ABOVE, CAN PUT:
         const commentInput = document.getElementById("new-comment");
-        addComment(commentInput.value);
+        if (!!editMode) {  //double bolean means we have current commentDiv that we're currently editing
+            editMode.children[0].innerText = commentInput.value;
+            document.getElementById('submit-comment').value = "Submit"
+            editMode = false;
+        } else {
+             addComment(commentInput.value);             
+        }
+       
         commentInput.value = "";
 
 }
@@ -35,9 +44,7 @@ function addComment (comment) {
     deleteImage.className = "trash";
 
     editButton.innerText = "Edit me"
-    editButton.addEventListener("click", function() {
-        alert("Let's edit this comment")
-    });
+    editButton.addEventListener("click", handleEditButton)
 
     deleteImage.addEventListener("click", (event) => {
         event.target.parentElement.remove();
@@ -52,6 +59,21 @@ function addComment (comment) {
     //alternative but with possible security issue
     //commentsDiv.innerHTML += `<span>${comment}</span><br>`
 }
+
+
+
+function handleEditButton(event) {
+    const commentDiv = event.target.parentElement;
+    let comment = commentDiv.children[0].innerText;
+    const submitButton = document.getElementById('submit-comment');
+    const input = document.getElementById('new-comment');
+    input.value = comment;
+    submitButton.value = "Edit";
+    editMode = commentDiv;
+}
+
+
+
 
 function addClickToButtons() {
     const parent = document.getElementById("helicopter-parent");
