@@ -22,9 +22,13 @@ function handleSubmit(event) {
 function addComment (comment) {
     const commentsDiv = document.getElementById("comments-container");
     const commentSpan = document.createElement('span');
-    commentSpan.innerText = comment;
+    const horseHead = document.createElement('span');
+    const space = document.createElement('br');
 
-    commentsDiv.append(commentSpan);
+    commentSpan.innerText = comment;
+    horseHead.innerHTML = "     &#10004;" //NOTE that innerText and innerComment won't work here and instead show string instead of image
+    
+    commentsDiv.append(commentSpan, horseHead, space);
 
     //alternative but with possible security issue
     //commentsDiv.innerHTML += `<span>${comment}</span><br>`
