@@ -14,9 +14,10 @@ function handleSubmit(event) {
         console.log(event);
         // const input = event.target[0];
         // const comment = input.value;    //OR INSTEAD OF THIS LINE AND LINE ABOVE, CAN PUT:
-        const comment = document.getElementById("new-comment").value;
-        console.log(comment);
-        addComment(comment)
+        const commentInput = document.getElementById("new-comment");
+        addComment(commentInput.value);
+        commentInput.value = "";
+
 }
 
 function addComment (comment) {
