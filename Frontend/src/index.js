@@ -25,21 +25,28 @@ function addComment (comment) {
     const commentsDiv = document.getElementById("comments-container");
     const commentDiv = document.createElement('div');
     const commentSpan = document.createElement('span');
-    const deleteButton = document.createElement('span');
+    const deleteImage = document.createElement('span');
     const space = document.createElement('br');
+    const editButton = document.createElement('button');
+
 
     commentSpan.innerText = comment;
-    deleteButton.innerHTML = "     &#9747; Click to delete"; //NOTE that innerText and innerComment won't work here and instead show string instead of image
-    deleteButton.className = "trash";
+    deleteImage.innerHTML = "     &#9747; Click to delete"; //NOTE that innerText and innerComment won't work here and instead show string instead of image
+    deleteImage.className = "trash";
 
-    deleteButton.addEventListener("click", (event) => {
+    editButton.innerText = "Edit me"
+    editButton.addEventListener("click", function() {
+        alert("Let's edit this comment")
+    });
+
+    deleteImage.addEventListener("click", (event) => {
         event.target.parentElement.remove();
     })
 
     // add fetch() function here to backend database in order to persist user entries
     // note you can use nodeexpress, mongodb or pythonbackend with JS frontend but it'll always be separate/on a different server
 
-    commentDiv.append(commentSpan, deleteButton, space);
+    commentDiv.append(commentSpan, editButton, deleteImage, space);
     commentsDiv.append(commentDiv);
 
     //alternative but with possible security issue
