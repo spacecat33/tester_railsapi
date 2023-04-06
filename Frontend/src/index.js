@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const form = document.getElementById("comment-form")  //this will grab specific form with the noted id/specific selector.
 console.log(form);
 
-form.addEventListener("submit", handleSubmit)
+form.addEventListener("submit", handleSubmit) //note that the more event listeners slows the site down
 })
 
 function handleSubmit(event) {
@@ -12,6 +12,20 @@ function handleSubmit(event) {
         console.log(event);
         // const input = event.target[0];
         // const comment = input.value;    //OR INSTEAD OF THIS LINE AND LINE ABOVE, CAN PUT:
-        const comment = document.getElementById("new-comment").value
+        const comment = document.getElementById("new-comment").value;
         console.log(comment);
-    }
+        addComment(comment)
+}
+
+function addComment (comment) {
+    const commentsDiv = document.getElementById("comments-container");
+    const commentSpan = document.createElement('span');
+    commentSpan.innerText = comment;
+
+    commentsDiv.append(commentSpan);
+
+    //alternative but with possible security issue
+    //commentsDiv.innerHTML += `<span>${comment}</span><br>`
+}
+
+
