@@ -37,6 +37,6 @@ class CompetitionsController < ApplicationController
     def competition_params
         #return only the competitions that haven't taken place yet
         params.permit(:name, :arena, :discipline, :level, :starts_at, :ends_at)
-        render json: competitions, status: :ok
+        
     end
 end

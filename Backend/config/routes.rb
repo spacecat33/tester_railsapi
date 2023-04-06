@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :ticket_holders
 
   resources :competitions, only: [:index, :show, :create, :update, :destroy]
-  get '/ongoing_competitions', to "competitions#ongoing_competitions"
+  # get '/ongoing_co÷mpetitions', to "competitions#ongoing_competitions"
 
   resources :events
   resources :users
