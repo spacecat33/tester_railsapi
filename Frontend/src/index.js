@@ -112,3 +112,26 @@ function callback(){
         console.log("hello")
     }
 }
+
+function fetchComments(){
+   //fetch all comments from backend db
+
+   fetch("http://localhost:3000/api/v1/comments", {
+        method: POST, 
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"  
+        },
+        body: JSON.stringify({
+            name: nameInput.value
+        })
+    }
+//    .then(res => res.json())
+//    .then(data => {
+//     console.log(data)
+//     let h1 = document.querySelector('header h1')
+//     h1.textContent = data.name
+//    })
+   
+//    render comments to #comments-container
+}
