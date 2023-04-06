@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>JS Events</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="src/index.js"></script>
+        
     </head>
 
     <body>
@@ -13,7 +13,7 @@
             <h2>Comments</h2>
 
             <!-- COMMENT FORM -->
-            <form id='comment-form'>
+            <form id='comment-form'>  <!-- submit event is from here, not the input field below on line 19 -->
                 <div class="field">
                     <input id='new-comment' type='text' placeholder='New Comment' />
                     <input type='submit' class='btn' value="Submit" />
@@ -44,5 +44,7 @@
         </div>
 
         <button id="my-button">CLICK ME</button>
+
+        <script src="src/index.js"></script>
     </body>
 </html>
