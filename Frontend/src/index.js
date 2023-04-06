@@ -22,13 +22,16 @@ function handleSubmit(event) {
 function addComment (comment) {
     const commentsDiv = document.getElementById("comments-container");
     const commentSpan = document.createElement('span');
-    const horseHead = document.createElement('span');
+    const deleteButton = document.createElement('span');
     const space = document.createElement('br');
 
     commentSpan.innerText = comment;
-    horseHead.innerHTML = "     &#10004;" //NOTE that innerText and innerComment won't work here and instead show string instead of image
-    
-    commentsDiv.append(commentSpan, horseHead, space);
+    deleteButton.innerHTML = "     &#9747; Click to delete"; //NOTE that innerText and innerComment won't work here and instead show string instead of image
+    deleteButton.className = "trash";
+
+    // deleteButton.addEventlistener 
+
+    commentsDiv.append(commentSpan, deleteButton, space);
 
     //alternative but with possible security issue
     //commentsDiv.innerHTML += `<span>${comment}</span><br>`
