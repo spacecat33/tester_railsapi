@@ -28,4 +28,9 @@ function addComment (comment) {
     //commentsDiv.innerHTML += `<span>${comment}</span><br>`
 }
 
-
+function addClickToButtons() {
+    const parent = document.getElementById("helicopter-parent");
+    parent.addEventListener("click", (event) => {
+        alert("I was clicked");
+    })
+}
