@@ -21,6 +21,7 @@ function handleSubmit(event) {
 
 function addComment (comment) {
     const commentsDiv = document.getElementById("comments-container");
+    const commentDiv = document.createElement('div');
     const commentSpan = document.createElement('span');
     const deleteButton = document.createElement('span');
     const space = document.createElement('br');
@@ -29,9 +30,12 @@ function addComment (comment) {
     deleteButton.innerHTML = "     &#9747; Click to delete"; //NOTE that innerText and innerComment won't work here and instead show string instead of image
     deleteButton.className = "trash";
 
-    // deleteButton.addEventlistener 
+    deleteButton.addEventListener("click", (event) => {
+        event.target.parentElement.remove();
+    })
 
-    commentsDiv.append(commentSpan, deleteButton, space);
+    commentDiv.append(commentSpan, deleteButton, space);
+    commentsDiv.append(commentDiv);
 
     //alternative but with possible security issue
     //commentsDiv.innerHTML += `<span>${comment}</span><br>`
