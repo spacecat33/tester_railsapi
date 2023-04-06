@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-// const form = document.querySelector('form'); //this will grab first form on page
-const form = document.getElementById("comment-form")  //this will grab specific form with the noted id/specific selector.
-console.log(form);
+    // const form = document.querySelector('form'); //this will grab first form on page
+    const form = document.getElementById("comment-form")  //this will grab specific form with the noted id/specific selector.
+    console.log(form);
 
-form.addEventListener("submit", handleSubmit) //note that the more event listeners slows the site down
+    form.addEventListener("submit", handleSubmit) //note that the more event listeners slows the site down
 
-addClickToButtons();
+    addClickToButtons();
+    addClickMeButton();
 })
 
 function handleSubmit(event) {
@@ -68,4 +69,17 @@ function addClickToButtons() {
                 break;
         }
     })
+}
+
+function addClickMeButton() {
+    const button = document.getElementById("my-button");
+    button.addEventListener("click", callback()) //always need a function to be added here
+
+}
+
+function callback(){
+    console.log("hi")
+    return function() {
+        console.log("hello")
+    }
 }
